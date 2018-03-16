@@ -87,22 +87,26 @@ public class RecorderManager {
     }
 
     public void stop() {
-        if (mMediaRecorder != null) {
-            mMediaRecorder.stop();
-            mMediaRecorder.release();
-            mMediaRecorder = null;
-        }
+        release();
         if (mListener != null) {
             mListener.stop((System.currentTimeMillis() - startTime) / 1000 + 1);
         }
     }
 
     public void cancel() {
-        stop();
+        release();
         if (mCurrentFilePath != null) {
             File file = new File(mCurrentFilePath);
             file.delete();
             mCurrentFilePath = null;
+        }
+    }
+
+    private void release() {
+        if (mMediaRecorder != null) {
+            mMediaRecorder.stop();
+            mMediaRecorder.release();
+            mMediaRecorder = null;
         }
     }
 
