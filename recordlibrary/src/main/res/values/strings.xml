@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">RecordLibrary</string>
+    <string name="record_short">录制时间过短</string>
+    <string name="click_record">点击录音</string>
+    <string name="click_finish_record">点击完成录音</string>
+    <string name="cancle">取消</string>
+    <string name="finish">完成</string>
+    <string name="no_permission">没有录音权限</string>
+</resources>
