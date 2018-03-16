@@ -3,6 +3,7 @@ package com.yc.recordlibrary.box;
 import android.Manifest;
 import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.pm.PackageManager;
 import android.graphics.drawable.AnimationDrawable;
 import android.media.MediaPlayer;
@@ -76,6 +77,7 @@ public class RecordNoticeBox {
         mDialog.setContentView(view);
         mDialog.setCancelable(builder.getCancelable());
         mDialog.setCanceledOnTouchOutside(builder.getCanceledOnTouchOutside());
+        mDialog.setOnDismissListener(new dismissListener());
 
         mVoiceLeft = view.findViewById(R.id.voice_time_left);
         mVoiceRight = view.findViewById(R.id.voice_time_right);
@@ -328,9 +330,17 @@ public class RecordNoticeBox {
 
     public void dismiss() {
         if (mDialog != null) {
-            stopTimer();
-            MediaManager.release();
             mDialog.dismiss();
+        }
+    }
+
+    class dismissListener implements DialogInterface.OnDismissListener {
+
+        @Override
+        public void onDismiss(DialogInterface dialogInterface) {
+            stopTimer();
+            recordVoiceManager.cancel();
+            MediaManager.release();
         }
     }
 }
