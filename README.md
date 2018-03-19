@@ -1,5 +1,5 @@
 # RecordingBox
-### 使用方式
+## 使用方式
 ```java
 RecordNoticeBox.newBox(context)
                         .setFileDir("mine_record")//设置文件夹名称
@@ -19,3 +19,10 @@ RecordNoticeBox.newBox(context)
                         .show();
             }
         });
+```
+## Gradle
+```
+dependencies {
+    compile 'com.github.kabuqinuofu:RecordingBox:V1.0.2'
+}
+```
