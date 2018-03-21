@@ -49,8 +49,8 @@ public class MainActivity extends AppCompatActivity {
                             public void cancle() {
                                 Toast.makeText(MainActivity.this, "取消", Toast.LENGTH_SHORT).show();
                             }
-                        }).setCancelable(false)
-                        .setCanceledOnTouchOutside(false).create().show();
+                        }).setCancelable(true)
+                        .setCanceledOnTouchOutside(true).create().show();
             }
         });
     }
